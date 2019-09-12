@@ -53,5 +53,5 @@ if __name__ == "__main__":
         sys.exit(1)
     else:
         with open(sys.argv[1], 'r') as handle:
-            words = handle.read().split()
+            words = handle.read().split() 
             print (find_anagrams(words))
