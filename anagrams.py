@@ -8,10 +8,11 @@
     for an arbitrary list of strings.
 
 """
-__author__ = "perrymw.....assistance from "
+__author__ = "perrymw.....assistance from Mr.Madar(BDFL)"
 
 import sys
-
+# Piero "der klein König" Madar showed me this
+from collections import defaultdict
 
 def alphabetize(string):
     """ alphabetize
@@ -38,13 +39,10 @@ def find_anagrams(words):
         >>> print find_anagrams(['cat', 'dog', 'act'])
         {'dgo': ['dog'], 'act': ['cat', 'act']}
     """
-    ana_dict = {}
+    
+    ana_dict = defaultdict(list)
     for word in words:
-        a = alphabetize(word)
-        if a not in ana_dict:
-            ana_dict[a] = [word]
-        else:
-            ana_dict[a].append(word)
+        ana_dict[alphabetize(word)].append(word)
     return ana_dict
 
 
