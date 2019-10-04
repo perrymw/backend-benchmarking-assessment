@@ -40,9 +40,13 @@ def find_anagrams(words):
         {'dgo': ['dog'], 'act': ['cat', 'act']}
     """
     
-    ana_dict = defaultdict(list)
+    ana_dict = {}
     for word in words:
-        ana_dict[alphabetize(word)].append(word)
+        a = alphabetize(word)
+        if a not in ana_dict:
+            ana_dict[a] = [word]
+        else:
+            ana_dict[a].append(word)
     return ana_dict
 
 
